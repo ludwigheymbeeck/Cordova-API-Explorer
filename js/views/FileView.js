@@ -66,7 +66,7 @@ window.FileView = Backbone.View.extend({
                     function(file) {
                         file.createWriter(
                             function(writer) {
-                                writer.onwrite = function(event) {
+                                writer.onwriteend = function(event) {
                                     navigator.notification.alert(
                                         'The file was saved successfully',  // message
                                         null,
