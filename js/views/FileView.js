@@ -42,13 +42,6 @@ window.FileView = Backbone.View.extend({
                             showAlert('Error loading file');
                         };
 						reader.readAsText(file);
-
-						reader.onloadend = function(evt) {
-							console.log("Read as data URL");
-							console.log(event.target.result);
-							$('#fileContent').val(event.target.result);
-						};
-                        reader.readAsDataURL(file);
                     },
                     function() {
                         navigator.notification.alert(
