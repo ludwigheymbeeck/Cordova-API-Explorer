@@ -107,3 +107,10 @@ templateLoader.load([   'HeaderView',
         this.app = new AppRouter();
         Backbone.history.start();
 });
+
+
+(function () {
+    $(function() {
+        FastClick.attach(document.body);
+    });
+}())
