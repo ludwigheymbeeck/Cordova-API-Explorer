@@ -32,13 +32,23 @@ window.FileView = Backbone.View.extend({
                 fileSystem.root.getFile(fileName, {create: false, exclusive: false},
                     function(file) {
                         var reader = new FileReader();
-                        reader.onload = function(event) {
+                        //reader.onload = function(event) {
+						reader.onloadend = function(event) {
+							console.log("Read as data URL");
+							console.log(event.target.result);
                             $('#fileContent').val(event.target.result);
                         };
                         reader.onerror = function(event) {
                             showAlert('Error loading file');
                         };
-                        reader.readAsText(file);
+						reader.readAsText(file);
+
+						reader.onloadend = function(evt) {
+							console.log("Read as data URL");
+							console.log(event.target.result);
+							$('#fileContent').val(event.target.result);
+						};
+                        reader.readAsDataURL(file);
                     },
                     function() {
                         navigator.notification.alert(
