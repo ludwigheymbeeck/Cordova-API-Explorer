@@ -18,7 +18,7 @@ window.CaptureView = Backbone.View.extend({
     captureAudio: function() {
         var self = this;
         navigator.device.capture.captureAudio(function(files) {
-            $('#capturedVideo, #capturedImg').hide();
+            $('#capturedVideo, #capturedImage').hide();
             $('#capturedAudio').show();
             $('#capturedAudio').attr('controls', 'controls');
             self.loadMedia(files, "#capturedAudio");
