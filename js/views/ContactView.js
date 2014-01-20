@@ -9,6 +9,7 @@ window.ContactView = Backbone.View.extend({
         "click #searchBtn"      :  "searchHandler",
         "click #addContactBtn"  :  "addHandler",
         "click #saveBtn":    "saveHandler",
+        "click #removeBtn":    "removeHandler",
         "click a":    "selectContact"
     },
 
@@ -51,6 +52,16 @@ window.ContactView = Backbone.View.extend({
         return false;
     },
 
+    removeHandler: function() {
+        this.contact.name = {givenName: $('#firstName').val(), familyName:  $('#lastName').val()};
+        var phoneNumbers = [];
+        phoneNumbers[0] = new ContactField('work', $('#workPhone').val(), false);
+        phoneNumbers[1] = new ContactField('mobile', $('#mobilePhone').val(), true); // preferred number
+        this.contact.phoneNumbers = phoneNumbers;
+        this.contact.remove();
+        return false;
+    },
+    
     contactSuccess: function(contacts) {
         $('#contactList').empty();
         this.contacts = contacts;
