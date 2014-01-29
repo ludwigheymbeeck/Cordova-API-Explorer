@@ -6,9 +6,7 @@
         version   = "0.0.1">
         
     <name>CordovAPIx</name>
-    <description>
-        Cordova Plugins Demo
-    </description>
+    <description>Cordova Plugins Demo</description>
     <author email="ludwigheymbeeck@gmail.com">
         Ludwig Heymbeeck
     </author>
